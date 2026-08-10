@@ -16,7 +16,8 @@ DB_PORT = os.environ.get("DB_PORT", "3306")
 DB_NAME = os.environ.get("DB_NAME", "flask_db")
 
 # Construct MySQL URI dynamically
-app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+# Wrong — DB_HOST itself contains "123@34.125.176.132"
+SQLALCHEMY_DATABASE_URI = f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
