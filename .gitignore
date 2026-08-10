@@ -1,3 +1,5 @@
 .env
 mysql
 mysql.pub
+flaskapp
+flaskapp.pub
